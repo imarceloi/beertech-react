@@ -97,15 +97,25 @@ eval("function _classCallCheck(instance, Constructor) {\n  if (!(instance instan
 
 /***/ }),
 
-/***/ "./src/components/Cliente.js":
-/*!***********************************!*\
-  !*** ./src/components/Cliente.js ***!
-  \***********************************/
-/*! exports provided: Cliente */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Cliente\", function() { return Cliente; });\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);\n\nvar Cliente = function Cliente(nome, sobrenome) {\n  _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Cliente);\n\n  this.nome = nome;\n  this.sobrenome = sobrenome;\n};\n\n//# sourceURL=webpack:///./src/components/Cliente.js?");
+eval("function _defineProperties(target, props) {\n  for (var i = 0; i < props.length; i++) {\n    var descriptor = props[i];\n    descriptor.enumerable = descriptor.enumerable || false;\n    descriptor.configurable = true;\n    if (\"value\" in descriptor) descriptor.writable = true;\n    Object.defineProperty(target, descriptor.key, descriptor);\n  }\n}\n\nfunction _createClass(Constructor, protoProps, staticProps) {\n  if (protoProps) _defineProperties(Constructor.prototype, protoProps);\n  if (staticProps) _defineProperties(Constructor, staticProps);\n  return Constructor;\n}\n\nmodule.exports = _createClass;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/createClass.js?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function _taggedTemplateLiteral(strings, raw) {\n  if (!raw) {\n    raw = strings.slice(0);\n  }\n\n  return Object.freeze(Object.defineProperties(strings, {\n    raw: {\n      value: Object.freeze(raw)\n    }\n  }));\n}\n\nmodule.exports = _taggedTemplateLiteral;\n\n//# sourceURL=webpack:///./node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js?");
 
 /***/ }),
 
@@ -117,7 +127,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_Cliente__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Cliente */ \"./src/components/Cliente.js\");\n\nvar teste1 = new Cliente(\"Leonardo\", \"Tumadjian\"); // instância\n\nconsole.log(teste1);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _libs_BeertecVideo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./libs/BeertecVideo */ \"./src/libs/BeertecVideo.js\");\n\nvar video = new _libs_BeertecVideo__WEBPACK_IMPORTED_MODULE_0__[\"default\"](320, 240, \"Your browser does not support the video tag.\");\nvar videoElement = document.getElementById(\"beertech_player\");\nvar playVideo = document.getElementById(\"play_video\");\nvideo.sources([{\n  src: \"./assets/video.mp4\",\n  type: \"video.mp4\"\n}, {\n  src: \"./assets/video.ogv\",\n  type: \"video/ogg\"\n}, {\n  src: \"./assets/video.webm\",\n  type: \"video/webm\"\n}]);\nvideo.render(videoElement);\nplayVideo.addEventListener(\"click\", function (clickEvent) {\n  if (video.videoCreated.paused) video.play();else video.pause();\n});\nconsole.log(video.videoCreated);\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/libs/BeertecVideo.js":
+/*!**********************************!*\
+  !*** ./src/libs/BeertecVideo.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ \"./node_modules/@babel/runtime/helpers/taggedTemplateLiteral.js\");\n/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ \"./node_modules/@babel/runtime/helpers/classCallCheck.js\");\n/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ \"./node_modules/@babel/runtime/helpers/createClass.js\");\n/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nfunction _templateObject2() {\n  var data = _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0___default()([\"\", \"\", \"\"]);\n\n  _templateObject2 = function _templateObject2() {\n    return data;\n  };\n\n  return data;\n}\n\nfunction _templateObject() {\n  var data = _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0___default()([\"\", \"\", \"\"]);\n\n  _templateObject = function _templateObject() {\n    return data;\n  };\n\n  return data;\n}\n\nvar BeertechVideo = /*#__PURE__*/function () {\n  function BeertechVideo(width, height, supportMessage) {\n    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, BeertechVideo);\n\n    this._width = width;\n    this._height = height;\n    this._supportMessage = supportMessage;\n  }\n\n  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(BeertechVideo, [{\n    key: \"sources\",\n    value: function sources(_sources) {\n      return this._sources = _sources;\n    }\n  }, {\n    key: \"render\",\n    value: function render(videoElement) {\n      var videoCreated = setVideoTag(_templateObject(), this, videoElement);\n      this._videoCreated = videoCreated;\n      return videoCreated;\n    }\n  }, {\n    key: \"play\",\n    value: function play() {\n      this._videoCreated.play();\n    }\n  }, {\n    key: \"pause\",\n    value: function pause() {\n      this._videoCreated.pause();\n    }\n  }, {\n    key: \"videoCreated\",\n    get: function get() {\n      return this._videoCreated;\n    }\n  }]);\n\n  return BeertechVideo;\n}();\n\nvar setVideoTag = function setVideoTag() {\n  var videoTag = document.createElement(\"video\");\n\n  for (var _len = arguments.length, videoElement = new Array(_len), _key = 0; _key < _len; _key++) {\n    videoElement[_key] = arguments[_key];\n  }\n\n  videoTag.width = videoElement[1]._width;\n  videoTag.height = videoElement[1]._height;\n  videoTag.innerHTML = videoElement[1]._supportMessage;\n  videoTag.id = \"video\";\n  setSourceTag(_templateObject2(), videoElement[1], videoTag);\n  return videoElement[2].appendChild(videoTag);\n};\n\nvar setSourceTag = function setSourceTag() {\n  for (var _len2 = arguments.length, sourceValues = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {\n    sourceValues[_key2] = arguments[_key2];\n  }\n\n  sourceValues[1]._sources.forEach(function (video) {\n    var sourceTag = document.createElement(\"source\");\n    sourceTag.src = video.src;\n    sourceTag.type = video.type;\n    return sourceValues[2].appendChild(sourceTag);\n  });\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (BeertechVideo);\n\n//# sourceURL=webpack:///./src/libs/BeertecVideo.js?");
 
 /***/ })
 

@@ -1,12 +1,12 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: path.resolve(__dirname, 'src'),
+  entry: path.resolve(__dirname, "src"),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    sourceMapFilename: "[name].js.map"
+    sourceMapFilename: "[name].js.map",
   },
   module: {
     rules: [
@@ -17,16 +17,19 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: [
-              "@babel/preset-env"
+              "@babel/preset-env",
+              {
+                plugins: ["@babel/plugin-proposal-class-properties"],
+              },
             ],
             plugins: [
               "syntax-async-functions",
               "@babel/plugin-transform-regenerator",
-              "@babel/plugin-transform-runtime"
-            ]
-          }
-        }
-      }
-    ]
-  }
-}
+              "@babel/plugin-transform-runtime",
+            ],
+          },
+        },
+      },
+    ],
+  },
+};
