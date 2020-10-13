@@ -1321,8 +1321,8 @@
 
 "@material-ui/icons@^4.9.1":
   version "4.9.1"
-  resolved "https://ab-inbev.pkgs.visualstudio.com/GHQ_B2B_Delta/_packaging/nfa-services/npm/registry/@material-ui/icons/-/icons-4.9.1.tgz#fdeadf8cb3d89208945b33dbc50c7c616d0bd665"
-  integrity sha1-/erfjLPYkgiUWzPbxQx8YW0L1mU=
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.9.1.tgz#fdeadf8cb3d89208945b33dbc50c7c616d0bd665"
+  integrity sha512-GBitL3oBWO0hzBhvA9KxqcowRUsA0qzwKkURyC8nppnC3fw54KPKZ+d4V1Eeg/UnDRSzDaI9nGCdel/eh9AQMg==
   dependencies:
     "@babel/runtime" "^7.4.4"
 

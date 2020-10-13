@@ -34,6 +34,18 @@ export default class Home extends Component<IProps, IState> {
     });
   }
 
+  handleSearchUser = (inputValue: string) => {
+    apiService.getUsers().then((response: IUser) => {
+      this.setState({
+        users: response.data.filter(user => {
+          const name = user.name.toLocaleLowerCase();
+
+          return name.includes(inputValue.toLocaleLowerCase())
+        }),
+      });
+    });
+  }
+
   render() {
     const { users } = this.state;
 
@@ -45,7 +57,7 @@ export default class Home extends Component<IProps, IState> {
             <h1>Beertech Talents - Aula6 React Class Components grupo 3</h1>
           </Title>
 
-          <SearchBar />
+          <SearchBar searchUser={this.handleSearchUser}/>
 
           <UsersList users={users}></UsersList>
         </Container>

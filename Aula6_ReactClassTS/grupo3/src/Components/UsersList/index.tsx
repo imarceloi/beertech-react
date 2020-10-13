@@ -15,11 +15,15 @@ export default class UsersList extends Component<IProps, {}> {
   render() {
     return (
       <Grid container justify="flex-start" spacing={2}>
-        {this.props.users.map((user) => (
-          <Grid key={user.id} item xs={12} sm={6} md={4}>
-            <UserComponent key={user.id} userData={user} />
-          </Grid>
-        ))}
+        {this.props.users.length ? (
+          this.props.users.map((user) => (
+            <Grid key={user.id} item xs={12} sm={6} md={4}>
+              <UserComponent key={user.id} userData={user} />
+            </Grid>
+          ))
+        ) : (
+          <h2>Nenhum usuário encontrado</h2>
+        )}
       </Grid>
     );
   }
