@@ -1,63 +1,50 @@
-import React from 'react';
-
-// import Animals from './apifake/Animals';
-// import Owners from './apifake/Owners';
+import React, { useEffect, useState } from "react";
+import SelectOwners from "./Components/Owners";
+import SelectAnimals from "./Components/Animals";
+import AnimalsByOwner from "./Components/AnimalsByOwner";
+import Owners from "./apifake/Owners";
 
 import "./style.css";
+import IOwner from "./Interfaces/IOwner";
+import IAnimal from "./Interfaces/IAnimal";
+import IAnimalQuantity from "./Interfaces/IAnimalQuantity";
+import Animals from "./apifake/Animals";
 
-// chamadas de api fake
-// const owners: Owners = new Owners();
-// const animals: Animals = new Animals();
+const getOwnersApi: Owners = new Owners();
+const getAnimalsApi: Animals = new Animals();
 
-// owners.getAll(); // retorna promise
-// animals.getByOwnerId(); // retorna promise
+const getData = async () => {
+  const ownersResult: IOwner[] = await getOwnersApi.getAll();
+  return ownersResult;
+};
+
+const geAnimalsByOwner = async (ownerId: number) => {
+  const animalsResult: IAnimal[] = await getAnimalsApi.getByOwnerId(ownerId);
+  console.log("animalsResult", animalsResult);
+  return animalsResult;
+};
 
 function App() {
+  const [owners, setOwners] = useState<IOwner[]>([]);
+  const [ownerId, setOwnerId] = useState(Number);
+  const [animals, setAnimals] = useState<IAnimal[]>([]);
+
+  useEffect(() => {
+    getData().then((resultOwners) => {
+      setOwners(resultOwners);
+      let animalsOwners: IAnimal[] = [];
+      resultOwners.forEach((owner) => {
+        geAnimalsByOwner(owner.id);
+      });
+      console.log("animalsOwners", animalsOwners);
+    });
+  }, [ownerId, setOwners]);
+
   return (
     <div className="App">
-      <section id="owners-section">
-        <label htmlFor="owners">Donos:</label>
-        <select id="owners">
-          <option value="1">Dono 1</option>
-          <option value="2">Dono 2</option>
-          <option value="3">Dono 3</option>
-          <option value="4">Dono 4</option>
-        </select>
-      </section>
-      <section id="animals-section">
-        <label htmlFor="animals">Animais:</label>
-        <select id="animals">
-          <option>Animal 1</option>
-          <option>Animal 2</option>
-          <option>Animal 3</option>
-          <option>Animal 4</option>
-        </select>
-      </section>
-      <section id="report">
-        <button>Ordenar donos com mais animais</button>
-        <table id="reportList">
-          <thead>
-            <tr>
-              <th>Dono</th>
-              <th>Quantidade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Fulano 1</td>
-              <td>2 animais</td>
-            </tr>
-            <tr>
-              <td>Fulano 2</td>
-              <td>1 animal</td>
-            </tr>
-            <tr>
-              <td>Fulano 3</td>
-              <td>3 animais</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <SelectOwners owners={owners} selectOwner={setOwnerId} />
+      <SelectAnimals ownerId={ownerId} animals={animals} setAnimals={setAnimals} />
+      <AnimalsByOwner owners={owners} animals={animals} />
     </div>
   );
 }
